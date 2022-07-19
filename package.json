@@ -1,0 +1,31 @@
+{
+  "name": "megamart",
+  "version": "1.0.0",
+  "description": "Test project for chapter 4 of grokking simplicity",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "webpack",
+    "start": "webpack serve --open"
+  },
+  "keywords": [
+    "functional",
+    "programming",
+    "decomposing",
+    "actions"
+  ],
+  "author": "Adam McCartney",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "jsdom": "^20.0.0",
+    "mocha": "^10.0.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
