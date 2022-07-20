@@ -1,23 +1,22 @@
-const megaMart = (() => {
-    const items = [
-          {name: "Shirt", price: "€15"},
-          {name: "Jeans", price: "€12"}
-    ]
+const prvt_items = [
+      {name: "Shirt", price: "€15"},
+      {name: "Jeans", price: "€12"}
+]
 
-    const create_item_description = (item) => {
-        // creates a dom node with item's description
-        let description = document.createElement("div")
-        description.classList.add("item-description")
-        description.appendChild(elt("strong", `${item.name}`))
-      }
-
-  const exported = {
-    items: items,
-    create_item_description: create_item_description
+const prvt_create_item_elt = (item) => {
+    // creates a dom node with item's description
+    let description = document.createElement("div")
+    description.classList.add("item-description")
+    description.appendChild(elt("strong", `${item.name}`))
   }
-  return exported;
-})()
-  
+
+
+const megaMart = {
+  items: prvt_items,
+  create_item_elt: prvt_create_item_elt
+};
+
+export default megaMart;
   
 
 //function elt(type, ...children) {
