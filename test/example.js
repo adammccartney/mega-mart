@@ -8,4 +8,4 @@ const example = {
   toggleButton: toggleButton
 }
 
-export default example
+export default example;

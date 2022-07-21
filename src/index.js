@@ -3,24 +3,40 @@ const prvt_items = [
       {name: "Jeans", price: "€12"}
 ]
 
-const prvt_create_item_elt = (item) => {
-    // creates a dom node with item's description
-    let description = document.createElement("div")
-    description.classList.add("item-description")
-    description.appendChild(elt("strong", `${item.name}`))
+function prvt_make_list (list_data) {
+  // make a container for the list
+  let lstcontainer = document.createElement("div")
+  lstcontainer.classList.add("store-items")
+
+  // make the list
+  let lst = document.createElement("li")
+
+  // Add it to the page
+  document.getElementsByTagName('body')[0].appendChild(lstcontainer);
+  lstcontainer.appendChild(lst);
+
+  for (let i = 0; i < list_data.length; ++i) {
+      // Create an item for each one
+      let item = document.createElement('ul');
+
+      // Add the item name
+      item.innerHTML = list_data[i].name;
+
+      // Add listItem to the listElement
+      lst.appendChild(item);
   }
+}
 
-
-const megaMart = {
-  items: prvt_items,
-  create_item_elt: prvt_create_item_elt
-};
-
-export default megaMart;
-  
-
-//function elt(type, ...children) {
-//  // 
+//function prvt_create_item_list_elt(item) {
+//    // creates a dom node with item's description
+//    let description = document.createElement("ul")
+//    description.classList.add("item-description")
+////    description.appendChild(elt("strong", `${item.name}`))
+//    return description 
+//  }
+//
+//function prvt_elt(type, ...children) {
+//  // this fucntion creates an element 
 //  let node = document.createElement(type);
 //  for (let child of children) {
 //    if (typeof child != "item") node.appendChild(child);
@@ -28,6 +44,16 @@ export default megaMart;
 //  }
 //  return node;
 //}
+
+
+const megaMart = {
+  items: prvt_items,
+  make_list: prvt_make_list,
+};
+
+export default megaMart;
+  
+
 //
 //function create_item_elt (item) {
 //    // this is an action
