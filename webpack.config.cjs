@@ -1,7 +1,8 @@
-const path = require("path")
+const path = require("path");
 
 module.exports = {
   entry: './src/index.js',
+    mode: 'development',
   devServer: {
 
   static: './dist',
@@ -14,12 +15,9 @@ module.exports = {
    module: {
     rules: [
       {
-
         test: /\.css$/i,
-
         use: ['style-loader', 'css-loader'],
-
       },
     ],
-  }, 
+  },
 };
