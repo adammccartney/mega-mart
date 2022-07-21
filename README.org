@@ -1,0 +1,9 @@
+#+Title: mega mart
+
+* Welcome to consumer paradise
+
+This is a learning project that focuses on exploring the following:
+
++ Some ideas related to functional programming as outlined in the book Grokking Simplicity
++ Some javascript tooling specifically related to testing 
+  
