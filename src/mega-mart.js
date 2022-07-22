@@ -110,20 +110,13 @@ function prvt_make_ui (type, message, listener) {
          and pass them to the cart.
       */ 
       let item_price_element = e.target.previousElementSibling;
-      let item_price = parseInt(price_element.innerHTML);
-      console.log(price)
-      let item_name_element = price_element.previousElementSibling;
-      console.log(item_element)
-      let item_name = item_element.innerHTML;
-      console.log(item)
-      const item_unit = {
-        name: item_name,
-        price: item_price
-      }
+      let item_price = parseInt(item_price_element.innerHTML);
+      let item_name_element = item_price_element.previousElementSibling;
+      let item_name = item_name_element.innerHTML;
       // add item unit to cart
-      window.localStorage.setItem(item_unit)
-      
-      // update the cart total
+      prvt_add_item_to_cart(item_name, item_price);
+      prvt_calc_cart_total();
+      console.log(prvt_shopping_cart_total);
     });
   }
 
@@ -175,24 +168,27 @@ function prvt_make_item_display_dom (list_data) {
   }
 }
 
+function prvt_set_cart_total_dom () {
+
+} 
 
 var prvt_shopping_cart = [];
 var prvt_shopping_cart_total = [];
 
 function prvt_add_item_to_cart(name, price) {
-  shopping_cart.push({
+  prvt_shopping_cart.push({
     name: name,
     price: price
   })
 }
 
 function prvt_calc_cart_total() {
-  shopping_cart_total = 0;
-  for(var i = 0; i < shopping_cart.length; i++) {
-    var item = shopping_cart[i];
-    shopping_cart_total += item.price;
+  prvt_shopping_cart_total = 0;
+  for(var i = 0; i < prvt_shopping_cart.length; i++) {
+    var item = prvt_shopping_cart[i];
+    prvt_shopping_cart_total += item.price;
   }
-  set_cart_total_dom(); 
+  prvt_set_cart_total_dom(); 
 }
 
 // import styles (use webpack)
