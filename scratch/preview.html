@@ -79,6 +79,39 @@
       </div>
     </div>
     </body>
+    <script>
+      let shopping_cart = [
+        {name: "shirt", price: 15},
+        {name: "shirt", price: 15},
+        {name: "jeans", price: 32}
+      ]
+
+      function calc_total () {
+        shopping_cart_total = 0;
+            for(var i = 0; i < shopping_cart.length; i++) {
+            var item = shopping_cart[i];
+            shopping_cart_total += item.price;
+        }
+      }
+
+      function calc_cart_total() {
+        calc_total();
+        set_cart_total_dom(); 
+      }
+      
+      let shopping_cart_total = []
+      function set_cart_total_dom() {
+        let elts = document.getElementsByClassName("total")
+        let total_ui = elts[0]
+        total_ui.innerHTML = shopping_cart_total;
+      }
+      let add_item_btns = document.getElementsByClassName("add-item-to-cart");
+      for (let btn of add_item_btns) {
+        btn.addEventListener('click', function listener(e) {
+          calc_cart_total();
+        })
+      }
+    </script>
     </head>
 </html>
 

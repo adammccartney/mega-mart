@@ -115,8 +115,8 @@ function prvt_make_ui (type, message, listener) {
       let item_name = item_name_element.innerHTML;
       // add item unit to cart
       prvt_add_item_to_cart(item_name, item_price);
+      // update total as logic and ui
       prvt_calc_cart_total();
-      console.log(prvt_shopping_cart_total);
     });
   }
 
@@ -160,6 +160,7 @@ function prvt_make_item_display_dom (list_data) {
     // create add to cart button
     let add_to_cart_ui = prvt_make_ui("button", "Add To Cart");
 
+
     // append the ui elements to parent node
     itemgridcontainer.appendChild(name_ui);
     itemgridcontainer.appendChild(price_ui);
@@ -169,9 +170,14 @@ function prvt_make_item_display_dom (list_data) {
 }
 
 function prvt_set_cart_total_dom () {
+  let elts = document.getElementsByClassName("cart-total")
+  let total_ui = elts[0]
+  console.log(total_ui)
+  total_ui.innerHTML = prvt_shopping_cart_total;
+}
 
-} 
 
+    
 var prvt_shopping_cart = [];
 var prvt_shopping_cart_total = [];
 
@@ -179,19 +185,21 @@ function prvt_add_item_to_cart(name, price) {
   prvt_shopping_cart.push({
     name: name,
     price: price
-  })
+  });
 }
 
-function prvt_calc_cart_total() {
+function prvt_calc_total () {
   prvt_shopping_cart_total = 0;
   for(var i = 0; i < prvt_shopping_cart.length; i++) {
     var item = prvt_shopping_cart[i];
     prvt_shopping_cart_total += item.price;
   }
-  prvt_set_cart_total_dom(); 
 }
 
-// import styles (use webpack)
+function prvt_calc_cart_total() {
+  prvt_calc_total();
+  prvt_set_cart_total_dom(); 
+}
 
 const megaMart = {
   items: prvt_items,
