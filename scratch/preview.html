@@ -5,9 +5,10 @@
     <style>
     .item-description { grid-area: main; }
     .item-price { grid-area: rmain; }
-    .add-item-to-cart { grid-area: right; }
+    .add-to-cart { grid-area: right; }
     .navbar-left { grid-area: menu; }
     .cart-display { grid-area: right; }
+    .circle { grid-area: rright; }
 
     .nav-grid-container {
         display: grid;
@@ -52,6 +53,18 @@
       padding: 8px;
       background-color: #dddddd;
     }
+
+    .circle {
+        width: 8fr;
+        height: 8fr;
+        border-radius: 50%;
+        float: left;
+        margin-right: 8fr;
+    } 
+
+    #cirlce {
+        background-color: #196F3D;
+    }
     </style>
     <body>
       <nav>
@@ -70,12 +83,14 @@
       <div class="item-grid-container">
           <div class="item-description">Shoes</div>
           <div class="item-price">44</div>
-          <button class="add-item-to-cart">Add to cart</button>
+          <button class="add-to-cart">Add to cart</button>
+          <div class="circle" id="cirlce"></div>
       </div>
       <div class="item-grid-container">
           <div class="item-description">Shirt</div>
           <div class="item-price">28</div>
-          <button class="add-item-to-cart">Add to cart</button>
+          <button class="add-to-cart">Add to cart</button>
+          <div class="circle" id="cirlce"></div>
       </div>
     </div>
     </body>
@@ -105,12 +120,41 @@
         let total_ui = elts[0]
         total_ui.innerHTML = shopping_cart_total;
       }
-      let add_item_btns = document.getElementsByClassName("add-item-to-cart");
+      let add_item_btns = document.getElementsByClassName("add-to-cart");
       for (let btn of add_item_btns) {
         btn.addEventListener('click', function listener(e) {
           calc_cart_total();
         })
       }
+
+    function prvt_get_add_to_cart_buttons_dom () {
+        // gets all the add to cart buttons from dom
+        let btns = document.getElementsByClassName('add-to-cart');
+        return btns;
+    }
+
+      function show_shipping_icon (btn_ui) {
+        // assumes shipping icon is an existing element next to btn
+        let shipping_elt = btn_ui.nextElementSibling;
+        shipping_elt.style.display = "circle";
+      }
+
+        function hide_shipping_icon (btn_ui) {
+        // assumes shipping icon is an existing element next to btn
+        let shipping_elt = btn_ui.nextElementSibling;
+        shipping_elt.style.display = "none";
+      }
+
+      // show first 
+     let btns_ui = prvt_get_add_to_cart_buttons_dom();
+     let first_btn_ui = btns_ui[0];
+      show_shipping_icon(first_btn_ui);
+
+      // hide second
+      let scnd_btn_ui = btns_ui[1];
+      hide_shipping_icon(scnd_btn_ui)
+      
+      
     </script>
     </head>
 </html>

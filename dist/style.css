@@ -3,6 +3,7 @@
 .add-to-cart { grid-area: right; }
 .navbar-left { grid-area: menu; }
 .cart-display { grid-area: right; }
+.circle { grid-area: rright; }
 
 .nav-grid-container {
     display: grid;
@@ -46,4 +47,16 @@ a {
   display: block;
   padding: 8px;
   background-color: #dddddd;
+}
+
+.circle {
+    width: 8fr;
+    height: 8fr;
+    border-radius: 50%;
+    float: left;
+    margin-right: 8fr;
+} 
+
+#cirlce {
+    background-color: #196F3D;
 }
