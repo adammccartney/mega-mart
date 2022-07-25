@@ -1,0 +1,31 @@
+.nav-grid-container {
+    display: grid;
+    grid-template-areas:
+        'menu main main main main right';
+    gap: 10px;
+    background-color: #9F91F3;
+    padding: 10px;
+}
+
+
+.navbar-left { grid-area: menu; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+
+

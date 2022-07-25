@@ -1,9 +1,14 @@
-import megaMart from "./mega-mart.js"
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App';
+import reportWebVitals from './reportWebVitals'
 
-let items = megaMart.items;
-let nav_data = megaMart.nav_data;
+const root = ReactDOM.createRoot(
+  document.getElementById('root')
+);
 
-
-// render our components
-megaMart.make_nav_display_dom(nav_data);
-megaMart.make_item_display_dom(items);
+root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+);
